@@ -1,31 +1,205 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<title>หน้าแนะน;าตัวของฉัน</title>
-<style>
-body {
-background-color: #FC8EAC; color: #333;
-text-align: center; padding: 50px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-}
-.card {
-background: white; border-radius: 50px;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-max-width: 500px; margin: 0 auto; padding: 30px;
+    <title>Portfolio | ชื่อของคุณ</title>
+    <meta name="description" content="Portfolio เว็บไซต์ส่วนตัวของชื่อของคุณ">
 
-}
-h1 { color: #2c3e50; }
-p { font-size: 18px; line-height: 1.6; }
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="card">
-<h1>ยินดีต้อนรับสู่โปรไฟล์ของฉัน </h1>
-<p>สวัสดีค่ะ ดิฉันชื่อ <strong>ญาณิศา เสนาะล้ำ (Yanisa Sanorlam)</strong></p>
-<p>ขณะนี้ก;าลังศึกษา/สนใจด้าน  Science & Math</p>
-<p>นี่คือเว็บไซต์แรกของผมที่โฮสต์บน GitHub Pages!</p>
-<a href="portfolio.html" class="btn"> ดูแฟ้มสะสมผลงานของฉัน</a> 
-</div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Portfolio</div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+
+        <div class="hero-text">
+            <p class="hello">สวัสดีครับ 👋 ผมคือ</p>
+
+            <h1>ชื่อของคุณ</h1>
+
+            <h2>Web Developer / Designer</h2>
+
+            <p>
+                ผมสนใจด้านการพัฒนาเว็บไซต์ การออกแบบ UI/UX
+                และการสร้างเว็บไซต์ที่สวยงามและใช้งานง่าย
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="btn primary">ดูผลงาน</a>
+                <a href="#contact" class="btn secondary">ติดต่อผม</a>
+            </div>
+        </div>
+
+        <div class="profile">
+            <img src="assets/profile.jpg" alt="รูปโปรไฟล์">
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section id="about" class="section">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about">
+            <p>
+                สวัสดีครับ ผมชื่อ <strong>ชื่อของคุณ</strong>
+                เป็นนักพัฒนาเว็บไซต์ที่ชื่นชอบการสร้างเว็บไซต์
+                และเรียนรู้เทคโนโลยีใหม่ ๆ
+            </p>
+
+            <p>
+                ปัจจุบันกำลังศึกษาและพัฒนาทักษะด้าน HTML, CSS,
+                JavaScript และเทคโนโลยี Web Development
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skills">
+
+            <div class="skill-card">
+                <span>🌐</span>
+                <h3>HTML</h3>
+                <p>สร้างโครงสร้างเว็บไซต์</p>
+            </div>
+
+            <div class="skill-card">
+                <span>🎨</span>
+                <h3>CSS</h3>
+                <p>ออกแบบและตกแต่งเว็บไซต์</p>
+            </div>
+
+            <div class="skill-card">
+                <span>⚡</span>
+                <h3>JavaScript</h3>
+                <p>เพิ่มความสามารถให้เว็บไซต์</p>
+            </div>
+
+            <div class="skill-card">
+                <span>🐙</span>
+                <h3>Git / GitHub</h3>
+                <p>จัดการและเผยแพร่โปรเจกต์</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+
+        <h2 class="section-title">My Projects</h2>
+
+        <div class="projects">
+
+            <div class="project-card">
+                <div class="project-image">PROJECT 01</div>
+
+                <div class="project-content">
+                    <h3>เว็บไซต์ร้านค้า</h3>
+
+                    <p>
+                        เว็บไซต์ร้านค้าออนไลน์ที่ออกแบบด้วย
+                        HTML และ CSS
+                    </p>
+
+                    <a href="#" class="project-link">
+                        ดูโปรเจกต์ →
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="project-card">
+                <div class="project-image">PROJECT 02</div>
+
+                <div class="project-content">
+                    <h3>เว็บไซต์ Portfolio</h3>
+
+                    <p>
+                        เว็บไซต์ Portfolio ส่วนตัวสำหรับแนะนำตัว
+                        และแสดงผลงาน
+                    </p>
+
+                    <a href="#" class="project-link">
+                        ดูโปรเจกต์ →
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="project-card">
+                <div class="project-image">PROJECT 03</div>
+
+                <div class="project-content">
+                    <h3>เว็บไซต์โรงเรียน</h3>
+
+                    <p>
+                        เว็บไซต์สำหรับแสดงข้อมูล ข่าวสาร
+                        และกิจกรรมของโรงเรียน
+                    </p>
+
+                    <a href="#" class="project-link">
+                        ดูโปรเจกต์ →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+
+        <h2 class="section-title">Contact Me</h2>
+
+        <p>
+            หากสนใจติดต่อหรือพูดคุย
+            สามารถติดต่อฉันได้ที่
+        </p>
+
+        <div class="contact-links">
+            <a href="s34318@banbung.ac.th">
+                📧 Email
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 ชื่อของคุณ. All Rights Reserved.</p>
+    </footer>
+
 </body>
 </html>
