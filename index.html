@@ -3,203 +3,880 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Portfolio | ชื่อของคุณ</title>
-    <meta name="description" content="Portfolio เว็บไซต์ส่วนตัวของชื่อของคุณ">
-
+    <title>Portfolio | Yanisa Sanorlam</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">Portfolio</div>
+    <!-- แอปเปิ้ลลอยพื้นหลัง -->
+    <div class="apple apple1">🍎</div>
+    <div class="apple apple2">🍎</div>
+    <div class="apple apple3">🍎</div>
+    <div class="apple apple4">🍎</div>
+    <div class="apple apple5">🍎</div>
 
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
+    <!-- เมนูด้านบน -->
+    <nav class="navbar">
+        <a href="index.html" class="active">หน้าแรก</a>
+        <a href="preface.html">คำนำ</a>
+        <a href="profile.html">ประวัติส่วนตัว</a>
+        <a href="activities.html">ผลงานและกิจกรรม</a>
+        <a href="contact.html">ช่องทางการติดต่อ</a>
     </nav>
 
-    <!-- Hero -->
-    <section id="home" class="hero">
+    <!-- เนื้อหาหน้าแรก -->
+    <main class="home">
 
-        <div class="hero-text">
-            <p class="hello">สวัสดีครับ 👋 ผมคือ</p>
+        <h1 class="main-title">PORTFOLIO</h1>
 
-            <h1>ชื่อของคุณ</h1>
-
-            <h2>Web Developer / Designer</h2>
-
-            <p>
-                ผมสนใจด้านการพัฒนาเว็บไซต์ การออกแบบ UI/UX
-                และการสร้างเว็บไซต์ที่สวยงามและใช้งานง่าย
-            </p>
-
-            <div class="buttons">
-                <a href="#projects" class="btn primary">ดูผลงาน</a>
-                <a href="#contact" class="btn secondary">ติดต่อผม</a>
-            </div>
+        <!-- ใส่รูปภาพตรงนี้ -->
+        <div class="profile-image">
+            <img src="images/profile.jpg" alt="รูปภาพของญาณิศา">
         </div>
 
-        <div class="profile">
-            <img src="assets/profile.jpg" alt="รูปโปรไฟล์">
+        <div class="intro-box">
+            <h2>นางสาวญาณิศา เสนาะล้ำ</h2>
+            <h3>Name: Yanisa Sanorlam</h3>
+            <p>Nickname: Aomsin</p>
+            <p>ระดับชั้น มัธยมศึกษาชั้นปีที่ 6/3</p>
         </div>
 
-    </section>
-
-
-    <!-- About -->
-    <section id="about" class="section">
-
-        <h2 class="section-title">About Me</h2>
-
-        <div class="about">
-            <p>
-                สวัสดีครับ ผมชื่อ <strong>ชื่อของคุณ</strong>
-                เป็นนักพัฒนาเว็บไซต์ที่ชื่นชอบการสร้างเว็บไซต์
-                และเรียนรู้เทคโนโลยีใหม่ ๆ
-            </p>
-
-            <p>
-                ปัจจุบันกำลังศึกษาและพัฒนาทักษะด้าน HTML, CSS,
-                JavaScript และเทคโนโลยี Web Development
-            </p>
-        </div>
-
-    </section>
-
-
-    <!-- Skills -->
-    <section id="skills" class="section">
-
-        <h2 class="section-title">Skills</h2>
-
-        <div class="skills">
-
-            <div class="skill-card">
-                <span>🌐</span>
-                <h3>HTML</h3>
-                <p>สร้างโครงสร้างเว็บไซต์</p>
-            </div>
-
-            <div class="skill-card">
-                <span>🎨</span>
-                <h3>CSS</h3>
-                <p>ออกแบบและตกแต่งเว็บไซต์</p>
-            </div>
-
-            <div class="skill-card">
-                <span>⚡</span>
-                <h3>JavaScript</h3>
-                <p>เพิ่มความสามารถให้เว็บไซต์</p>
-            </div>
-
-            <div class="skill-card">
-                <span>🐙</span>
-                <h3>Git / GitHub</h3>
-                <p>จัดการและเผยแพร่โปรเจกต์</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Projects -->
-    <section id="projects" class="section">
-
-        <h2 class="section-title">My Projects</h2>
-
-        <div class="projects">
-
-            <div class="project-card">
-                <div class="project-image">PROJECT 01</div>
-
-                <div class="project-content">
-                    <h3>เว็บไซต์ร้านค้า</h3>
-
-                    <p>
-                        เว็บไซต์ร้านค้าออนไลน์ที่ออกแบบด้วย
-                        HTML และ CSS
-                    </p>
-
-                    <a href="#" class="project-link">
-                        ดูโปรเจกต์ →
-                    </a>
-                </div>
-            </div>
-
-
-            <div class="project-card">
-                <div class="project-image">PROJECT 02</div>
-
-                <div class="project-content">
-                    <h3>เว็บไซต์ Portfolio</h3>
-
-                    <p>
-                        เว็บไซต์ Portfolio ส่วนตัวสำหรับแนะนำตัว
-                        และแสดงผลงาน
-                    </p>
-
-                    <a href="#" class="project-link">
-                        ดูโปรเจกต์ →
-                    </a>
-                </div>
-            </div>
-
-
-            <div class="project-card">
-                <div class="project-image">PROJECT 03</div>
-
-                <div class="project-content">
-                    <h3>เว็บไซต์โรงเรียน</h3>
-
-                    <p>
-                        เว็บไซต์สำหรับแสดงข้อมูล ข่าวสาร
-                        และกิจกรรมของโรงเรียน
-                    </p>
-
-                    <a href="#" class="project-link">
-                        ดูโปรเจกต์ →
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Contact -->
-    <section id="contact" class="section contact">
-
-        <h2 class="section-title">Contact Me</h2>
-
-        <p>
-            หากสนใจติดต่อหรือพูดคุย
-            สามารถติดต่อฉันได้ที่
-        </p>
-
-        <div class="contact-links">
-            <a href="s34318@banbung.ac.th">
-                📧 Email
-            </a>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 ชื่อของคุณ. All Rights Reserved.</p>
-    </footer>
+    </main>
 
 </body>
+    <!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คำนำ | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="apple apple1">🍎</div>
+    <div class="apple apple2">🍎</div>
+    <div class="apple apple3">🍎</div>
+    <div class="apple apple4">🍎</div>
+    <div class="apple apple5">🍎</div>
+
+    <nav class="navbar">
+        <a href="index.html">หน้าแรก</a>
+        <a href="preface.html" class="active">คำนำ</a>
+        <a href="profile.html">ประวัติส่วนตัว</a>
+        <a href="activities.html">ผลงานและกิจกรรม</a>
+        <a href="contact.html">ช่องทางการติดต่อ</a>
+    </nav>
+
+    <main class="page">
+
+        <h1 class="page-title">คำนำ</h1>
+
+        <section class="content-box">
+
+            <h2>แฟ้มสะสมผลงาน (Portfolio)</h2>
+
+            <p>
+                แฟ้มสะสมผลงาน (Portfolio) เล่มนี้ จัดทำขึ้นเพื่อเป็นตัวแทน
+                ในการนำเสนอข้อมูลเกี่ยวกับประวัติส่วนตัว ความรู้ ความสามารถ
+                ทักษะ และกิจกรรมต่างๆ ของข้าพเจ้า โดยเฉพาะความสนใจและ
+                ความมุ่งมั่นที่มีต่อการศึกษาต่อ
+            </p>
+
+            <p>
+                ภายในแฟ้มสะสมผลงานเล่มนี้ ประกอบด้วยประวัติส่วนตัว
+                ผลการเรียน กิจกรรมที่ข้าพเจ้าได้เข้าร่วม
+            </p>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติส่วนตัว | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="apple apple1">🍎</div>
+    <div class="apple apple2">🍎</div>
+    <div class="apple apple3">🍎</div>
+    <div class="apple apple4">🍎</div>
+    <div class="apple apple5">🍎</div>
+
+    <nav class="navbar">
+        <a href="index.html">หน้าแรก</a>
+        <a href="preface.html">คำนำ</a>
+        <a href="profile.html" class="active">ประวัติส่วนตัว</a>
+        <a href="activities.html">ผลงานและกิจกรรม</a>
+        <a href="contact.html">ช่องทางการติดต่อ</a>
+    </nav>
+
+    <main class="page">
+
+        <h1 class="page-title">ประวัติส่วนตัว</h1>
+
+        <section class="content-box profile-box">
+
+            <h2>ประวัติส่วนตัว</h2>
+
+            <div class="profile-details">
+
+                <p><strong>ชื่อ-นามสกุล</strong> นางสาวญาณิศา เสนาะล้ำ</p>
+
+                <p><strong>Name</strong> Yanisa Sanorlam</p>
+
+                <p><strong>ชื่อเล่น</strong> ออมสิน</p>
+
+                <p><strong>Nickname</strong> Aomsin</p>
+
+                <p><strong>อายุ</strong> 18 ปี</p>
+
+                <p><strong>Age</strong> 18 years old</p>
+
+                <p><strong>วันเกิด</strong> 4 กันยายน 2551</p>
+
+                <p><strong>สัญชาติ</strong> ไทย</p>
+
+                <p><strong>เชื้อชาติ</strong> ไทย</p>
+
+                <p><strong>ศาสนา</strong> พุทธ</p>
+
+                <hr>
+
+                <h2>ประวัติการศึกษา</h2>
+
+                <p>
+                    <strong>สถานศึกษา</strong><br>
+                    โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
+                </p>
+
+                <p>
+                    <strong>แผนการเรียน</strong><br>
+                    วิทยาศาสตร์-คณิตศาสตร์ (MSEP)
+                </p>
+
+                <hr>
+
+                <h2>คณะและมหาวิทยาลัยที่สนใจศึกษาต่อ</h2>
+
+                <p>
+                    <strong>คณะ</strong> พยาบาลศาสตร์<br>
+                    <strong>สาขา</strong> พยาบาลศาสตร์<br>
+                    <strong>มหาวิทยาลัย</strong> มหาวิทยาลัยบูรพา
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ผลงานและกิจกรรม | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="apple apple1">🍎</div>
+    <div class="apple apple2">🍎</div>
+    <div class="apple apple3">🍎</div>
+    <div class="apple apple4">🍎</div>
+    <div class="apple apple5">🍎</div>
+
+    <nav class="navbar">
+        <a href="index.html">หน้าแรก</a>
+        <a href="preface.html">คำนำ</a>
+        <a href="profile.html">ประวัติส่วนตัว</a>
+        <a href="activities.html" class="active">ผลงานและกิจกรรม</a>
+        <a href="contact.html">ช่องทางการติดต่อ</a>
+    </nav>
+
+    <main class="page">
+
+        <h1 class="page-title">ผลงานและกิจกรรม</h1>
+
+        <section class="content-box">
+
+            <div class="gallery">
+
+                <!-- รูปภาพที่ 1 -->
+                <div class="activity-card">
+                    <img src="images/activity1.jpg" alt="ผลงานและกิจกรรมที่ 1">
+                    <h3>ผลงานและกิจกรรมที่ 1</h3>
+                </div>
+
+                <!-- รูปภาพที่ 2 -->
+                <div class="activity-card">
+                    <img src="images/activity2.jpg" alt="ผลงานและกิจกรรมที่ 2">
+                    <h3>ผลงานและกิจกรรมที่ 2</h3>
+                </div>
+
+                <!-- รูปภาพที่ 3 -->
+                <div class="activity-card">
+                    <img src="images/activity3.jpg" alt="ผลงานและกิจกรรมที่ 3">
+                    <h3>ผลงานและกิจกรรมที่ 3</h3>
+                </div>
+
+                <!-- รูปภาพที่ 4 -->
+                <div class="activity-card">
+                    <img src="images/activity4.jpg" alt="ผลงานและกิจกรรมที่ 4">
+                    <h3>ผลงานและกิจกรรมที่ 4</h3>
+                </div>
+
+                <!-- รูปภาพที่ 5 -->
+                <div class="activity-card">
+                    <img src="images/activity5.jpg" alt="ผลงานและกิจกรรมที่ 5">
+                    <h3>ผลงานและกิจกรรมที่ 5</h3>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ช่องทางการติดต่อ | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="apple apple1">🍎</div>
+    <div class="apple apple2">🍎</div>
+    <div class="apple apple3">🍎</div>
+    <div class="apple apple4">🍎</div>
+    <div class="apple apple5">🍎</div>
+
+    <nav class="navbar">
+        <a href="index.html">หน้าแรก</a>
+        <a href="preface.html">คำนำ</a>
+        <a href="profile.html">ประวัติส่วนตัว</a>
+        <a href="activities.html">ผลงานและกิจกรรม</a>
+        <a href="contact.html" class="active">ช่องทางการติดต่อ</a>
+    </nav>
+
+    <main class="page">
+
+        <h1 class="page-title">ช่องทางการติดต่อ</h1>
+
+        <section class="content-box contact-box">
+
+            <div class="contact-item">
+                <span class="contact-icon">📧</span>
+                <div>
+                    <h2>Gmail</h2>
+                    <p>yanisamaicry@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-icon">📱</span>
+                <div>
+                    <h2>Tel</h2>
+                    <p>062-986-2154</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-icon">📸</span>
+                <div>
+                    <h2>IG</h2>
+                    <p>aoms1nzq._</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
+/* =========================
+   ตั้งค่าพื้นฐาน
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Arial", "Tahoma", sans-serif;
+
+    /* ตารางหมากรุก */
+    background-color: #CC0000;
+
+    background-image:
+        linear-gradient(45deg, #FFFFFF 25%, transparent 25%),
+        linear-gradient(-45deg, #FFFFFF 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #FFFFFF 75%),
+        linear-gradient(-45deg, transparent 75%, #FFFFFF 75%);
+
+    background-size: 80px 80px;
+    background-position:
+        0 0,
+        0 40px,
+        40px -40px,
+        -40px 0;
+
+    color: #FFFFFF;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   เมนูด้านบน
+========================= */
+
+.navbar {
+    position: relative;
+    z-index: 100;
+
+    width: 95%;
+    max-width: 1200px;
+
+    margin: 25px auto;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    padding: 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+
+    color: #CCFF00;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    padding: 12px 20px;
+
+    border: 3px solid #FFFFFF;
+    border-radius: 8px;
+
+    background: rgba(204, 0, 0, 0.92);
+
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background: #FFFFFF;
+    color: #CC0000;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 10px #CCFF00,
+        0 0 20px rgba(204, 255, 0, 0.5);
+}
+
+
+/* =========================
+   แอปเปิ้ลลอย
+========================= */
+
+.apple {
+    position: fixed;
+
+    z-index: 1;
+
+    font-size: 45px;
+
+    pointer-events: none;
+
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
+
+    animation: floating 6s ease-in-out infinite;
+}
+
+.apple1 {
+    left: 8%;
+    top: 25%;
+
+    animation-duration: 5s;
+}
+
+.apple2 {
+    left: 82%;
+    top: 18%;
+
+    animation-duration: 7s;
+    animation-delay: 1s;
+}
+
+.apple3 {
+    left: 20%;
+    top: 78%;
+
+    animation-duration: 8s;
+    animation-delay: 2s;
+}
+
+.apple4 {
+    left: 70%;
+    top: 70%;
+
+    animation-duration: 6s;
+    animation-delay: 0.5s;
+}
+
+.apple5 {
+    left: 48%;
+    top: 45%;
+
+    animation-duration: 9s;
+    animation-delay: 1.5s;
+}
+
+@keyframes floating {
+
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(30px, -40px) rotate(15deg);
+    }
+
+    50% {
+        transform: translate(-20px, -70px) rotate(-15deg);
+    }
+
+    75% {
+        transform: translate(40px, -30px) rotate(10deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+
+/* =========================
+   หน้าแรก
+========================= */
+
+.home {
+    position: relative;
+    z-index: 10;
+
+    min-height: 85vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+.main-title {
+    color: #CCFF00;
+
+    font-size: clamp(55px, 10vw, 130px);
+
+    font-weight: 900;
+
+    letter-spacing: 10px;
+
+    text-shadow:
+        5px 5px 0 #CC0000,
+        0 0 20px rgba(204, 255, 0, 0.7);
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   รูปภาพโปรไฟล์
+========================= */
+
+.profile-image {
+    width: 33vw;
+    max-width: 500px;
+    min-width: 250px;
+
+    aspect-ratio: 3 / 1;
+
+    overflow: hidden;
+
+    border: 6px solid #FFFFFF;
+
+    border-radius: 15px;
+
+    background: #CC0000;
+
+    box-shadow:
+        0 0 20px rgba(0,0,0,0.5),
+        0 0 30px rgba(204,255,0,0.4);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =========================
+   กล่องข้อมูลหน้าแรก
+========================= */
+
+.intro-box {
+    margin-top: 30px;
+
+    padding: 25px 40px;
+
+    border: 4px solid #FFFFFF;
+
+    border-radius: 15px;
+
+    background: rgba(204, 0, 0, 0.9);
+
+    max-width: 800px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.intro-box h2 {
+    color: #FFFFFF;
+    font-size: clamp(25px, 4vw, 45px);
+
+    margin-bottom: 12px;
+}
+
+.intro-box h3 {
+    color: #FFFFFF;
+    font-size: clamp(20px, 3vw, 30px);
+
+    margin-bottom: 8px;
+}
+
+.intro-box p {
+    color: #FFFFFF;
+    font-size: clamp(18px, 2vw, 25px);
+
+    margin: 5px;
+}
+
+
+/* =========================
+   หน้าภายใน
+========================= */
+
+.page {
+    position: relative;
+    z-index: 10;
+
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 60px auto;
+
+    text-align: center;
+}
+
+.page-title {
+    display: inline-block;
+
+    color: #CCFF00;
+
+    font-size: clamp(45px, 7vw, 85px);
+
+    font-weight: 900;
+
+    padding: 10px 30px;
+
+    margin-bottom: 40px;
+
+    background: #CC0000;
+
+    border: 5px solid #FFFFFF;
+
+    border-radius: 15px;
+
+    text-shadow:
+        4px 4px 0 #000000;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.4);
+}
+
+
+/* =========================
+   กรอบข้อความ
+========================= */
+
+.content-box {
+    background: rgba(204, 0, 0, 0.94);
+
+    border: 5px solid #FFFFFF;
+
+    border-radius: 18px;
+
+    padding: 45px;
+
+    text-align: left;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.4);
+
+    margin-bottom: 50px;
+}
+
+.content-box h2 {
+    color: #CCFF00;
+
+    font-size: clamp(25px, 4vw, 40px);
+
+    margin-bottom: 20px;
+
+    text-align: center;
+}
+
+.content-box p {
+    color: #FFFFFF;
+
+    font-size: clamp(18px, 2vw, 24px);
+
+    line-height: 1.9;
+
+    margin-bottom: 15px;
+}
+
+.content-box hr {
+    border: none;
+
+    border-top: 3px solid #CCFF00;
+
+    margin: 30px 0;
+}
+
+
+/* =========================
+   ประวัติส่วนตัว
+========================= */
+
+.profile-details {
+    max-width: 850px;
+    margin: auto;
+}
+
+.profile-details strong {
+    color: #CCFF00;
+}
+
+
+/* =========================
+   Gallery
+========================= */
+
+.gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 30px;
+}
+
+.activity-card {
+    background: #CC0000;
+
+    border: 4px solid #FFFFFF;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    transition: all 0.3s ease;
+
+    text-align: center;
+}
+
+.activity-card:hover {
+    transform: translateY(-8px) scale(1.02);
+
+    box-shadow:
+        0 0 20px #CCFF00;
+}
+
+.activity-card img {
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+.activity-card h3 {
+    color: #CCFF00;
+
+    padding: 18px;
+
+    font-size: 22px;
+}
+
+
+/* =========================
+   ติดต่อ
+========================= */
+
+.contact-box {
+    max-width: 750px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+    border: 3px solid #FFFFFF;
+
+    border-radius: 12px;
+
+    background: rgba(150, 0, 0, 0.7);
+
+    transition: 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateX(10px);
+
+    border-color: #CCFF00;
+}
+
+.contact-icon {
+    font-size: 45px;
+}
+
+.contact-item h2 {
+    text-align: left;
+
+    color: #CCFF00;
+
+    font-size: 25px;
+
+    margin-bottom: 5px;
+}
+
+.contact-item p {
+    margin: 0;
+
+    font-size: 22px;
+}
+
+
+/* =========================
+   Responsive สำหรับมือถือ
+========================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        margin-top: 15px;
+    }
+
+    .navbar a {
+        font-size: 14px;
+
+        padding: 9px 12px;
+    }
+
+    .home {
+        padding-top: 30px;
+    }
+
+    .main-title {
+        letter-spacing: 4px;
+    }
+
+    .profile-image {
+        width: 80vw;
+    }
+
+    .intro-box {
+        padding: 20px;
+    }
+
+    .page {
+        width: 94%;
+
+        margin-top: 35px;
+    }
+
+    .content-box {
+        padding: 25px 20px;
+    }
+
+    .apple {
+        font-size: 30px;
+    }
+
+    .contact-item {
+        gap: 15px;
+        padding: 18px;
+    }
+
+    .contact-icon {
+        font-size: 32px;
+    }
+}
+// Portfolio - Yanisa Sanorlam
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    console.log("Welcome to Yanisa's Portfolio!");
+
+});
 </html>
