@@ -1,249 +1,903 @@
+```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Portfolio | Yanisa Sanorlam</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================
+           RESET
+        ========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Tahoma", "Arial", sans-serif;
+            color: #FFFFFF;
+            background-color: #CC0000;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           CHECKERBOARD BACKGROUND
+        ========================== */
+        .page {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+
+            background-color: #CC0000;
+            background-image:
+                linear-gradient(45deg, #FFFFFF 25%, transparent 25%),
+                linear-gradient(-45deg, #FFFFFF 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #FFFFFF 75%),
+                linear-gradient(-45deg, transparent 75%, #FFFFFF 75%);
+            background-size: 90px 90px;
+            background-position:
+                0 0,
+                0 45px,
+                45px -45px,
+                -45px 0px;
+        }
+
+        /* =========================
+           DARK OVERLAY
+        ========================== */
+        .page::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.58);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* =========================
+           FLOATING APPLES
+        ========================== */
+        .apple {
+            position: fixed;
+            font-size: 45px;
+            z-index: 1;
+            pointer-events: none;
+            animation: floatApple linear infinite;
+            filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.7));
+        }
+
+        .apple:nth-child(1) {
+            left: 8%;
+            top: 15%;
+            animation-duration: 8s;
+        }
+
+        .apple:nth-child(2) {
+            left: 85%;
+            top: 25%;
+            font-size: 55px;
+            animation-duration: 11s;
+            animation-delay: -3s;
+        }
+
+        .apple:nth-child(3) {
+            left: 15%;
+            top: 75%;
+            font-size: 35px;
+            animation-duration: 10s;
+            animation-delay: -5s;
+        }
+
+        .apple:nth-child(4) {
+            left: 75%;
+            top: 80%;
+            font-size: 48px;
+            animation-duration: 9s;
+            animation-delay: -2s;
+        }
+
+        .apple:nth-child(5) {
+            left: 50%;
+            top: 10%;
+            font-size: 30px;
+            animation-duration: 12s;
+            animation-delay: -7s;
+        }
+
+        .apple:nth-child(6) {
+            left: 45%;
+            top: 90%;
+            font-size: 42px;
+            animation-duration: 10s;
+            animation-delay: -4s;
+        }
+
+        @keyframes floatApple {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(60px, -50px) rotate(15deg);
+            }
+
+            50% {
+                transform: translate(-40px, -100px) rotate(-15deg);
+            }
+
+            75% {
+                transform: translate(50px, -40px) rotate(10deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            padding: 15px 20px;
+
+            background: rgba(0, 0, 0, 0.88);
+            border-bottom: 3px solid #CCFF00;
+            backdrop-filter: blur(8px);
+        }
+
+        nav a {
+            color: #CCFF00;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+
+            padding: 11px 22px;
+
+            border: 2px solid #CCFF00;
+            background: rgba(204, 0, 0, 0.75);
+
+            transition: 0.3s ease;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #000000;
+            background: #CCFF00;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(204, 255, 0, 0.5);
+        }
+
+        /* =========================
+           CONTENT
+        ========================== */
+        main {
+            position: relative;
+            z-index: 5;
+        }
+
+        section {
+            min-height: 100vh;
+
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            padding: 120px 8% 70px;
+        }
+
+        section.active {
+            display: flex;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           SECTION TITLE
+        ========================== */
+        .title {
+            color: #CCFF00;
+            font-size: clamp(50px, 8vw, 100px);
+            font-weight: 900;
+            text-align: center;
+            text-transform: uppercase;
+
+            margin-bottom: 45px;
+
+            text-shadow:
+                4px 4px 0 #000000,
+                0 0 20px rgba(204, 255, 0, 0.45);
+
+            letter-spacing: 3px;
+        }
+
+        /* =========================
+           CONTENT BOX
+        ========================== */
+        .content-box {
+            width: min(1000px, 95%);
+            padding: 35px;
+
+            background: rgba(0, 0, 0, 0.82);
+
+            border: 3px solid #FFFFFF;
+            box-shadow:
+                0 0 0 8px rgba(204, 0, 0, 0.85),
+                0 0 0 11px #CCFF00,
+                0 15px 45px rgba(0, 0, 0, 0.65);
+
+            line-height: 1.9;
+        }
+
+        .content-box h2 {
+            color: #CCFF00;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .content-box p {
+            color: #FFFFFF;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .label {
+            color: #CCFF00;
+            font-weight: bold;
+        }
+
+        /* =========================
+           HOME
+        ========================== */
+        .home-box {
+            text-align: center;
+        }
+
+        .home-box .title {
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           PROFILE IMAGE
+        ========================== */
+
+        /*
+          ใส่รูปของคุณโดยเปลี่ยน
+          images/profile.jpg
+          เป็นชื่อไฟล์รูปของคุณ
+        */
+
+        .profile-image {
+            width: min(33vw, 400px);
+            min-width: 230px;
+
+            aspect-ratio: 1 / 3;
+
+            object-fit: cover;
+
+            display: block;
+            margin: 20px auto 35px;
+
+            border: 5px solid #CCFF00;
+            outline: 5px solid #FFFFFF;
+
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+        }
+
+        .home-info {
+            text-align: center;
+        }
+
+        .home-info .name {
+            color: #FFFFFF;
+            font-size: clamp(25px, 3vw, 40px);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .home-info .english {
+            color: #FFFFFF;
+            font-size: clamp(20px, 2.5vw, 30px);
+            margin-bottom: 20px;
+        }
+
+        .home-info .nickname {
+            color: #CCFF00;
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .home-info .school {
+            color: #FFFFFF;
+            font-size: 23px;
+        }
+
+        /* =========================
+           PROFILE
+        ========================== */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .profile-item {
+            padding: 18px 20px;
+            border: 2px solid #CCFF00;
+            background: rgba(204, 0, 0, 0.35);
+        }
+
+        .profile-item strong {
+            display: block;
+            color: #CCFF00;
+            font-size: 19px;
+            margin-bottom: 5px;
+        }
+
+        .profile-item span {
+            color: #FFFFFF;
+            font-size: 18px;
+        }
+
+        .education {
+            margin-top: 25px;
+        }
+
+        /* =========================
+           ACTIVITIES
+        ========================== */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            text-align: center;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            aspect-ratio: 1 / 1.15;
+            object-fit: cover;
+
+            border: 3px solid #CCFF00;
+            background: #CC0000;
+
+            transition: 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(204, 255, 0, 0.6);
+        }
+
+        .gallery-item p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #FFFFFF;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            padding: 20px 25px;
+
+            border: 2px solid #CCFF00;
+            background: rgba(204, 0, 0, 0.35);
+
+            font-size: 23px;
+        }
+
+        .contact-icon {
+            font-size: 35px;
+        }
+
+        .contact-label {
+            color: #CCFF00;
+            font-weight: bold;
+            min-width: 100px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+        @media (max-width: 900px) {
+
+            nav {
+                flex-wrap: wrap;
+                gap: 6px;
+                padding: 10px;
+            }
+
+            nav a {
+                font-size: 13px;
+                padding: 8px 12px;
+            }
+
+            section {
+                padding-top: 150px;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-item {
+                font-size: 17px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .title {
+                font-size: 45px;
+            }
+
+            .content-box {
+                padding: 22px;
+            }
+
+            .content-box p {
+                font-size: 16px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 55vw;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-    <!-- แอปเปิ้ลลอยพื้นหลัง -->
-    <div class="apple apple1">🍎</div>
-    <div class="apple apple2">🍎</div>
-    <div class="apple apple3">🍎</div>
-    <div class="apple apple4">🍎</div>
-    <div class="apple apple5">🍎</div>
+<div class="page">
 
-    <!-- เมนูด้านบน -->
-    <nav class="navbar">
-        <a href="index.html" class="active">หน้าแรก</a>
-        <a href="preface.html">คำนำ</a>
-        <a href="profile.html">ประวัติส่วนตัว</a>
-        <a href="activities.html">ผลงานและกิจกรรม</a>
-        <a href="contact.html">ช่องทางการติดต่อ</a>
+    <!-- =========================
+         FLOATING APPLES
+    ========================== -->
+
+    <div class="apple">🍎</div>
+    <div class="apple">🍎</div>
+    <div class="apple">🍎</div>
+    <div class="apple">🍎</div>
+    <div class="apple">🍎</div>
+    <div class="apple">🍎</div>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav>
+
+        <a href="#" class="nav-link active" data-page="home">
+            หน้าหลัก
+        </a>
+
+        <a href="#" class="nav-link" data-page="preface">
+            คำนำ
+        </a>
+
+        <a href="#" class="nav-link" data-page="profile">
+            ประวัติส่วนตัว
+        </a>
+
+        <a href="#" class="nav-link" data-page="activities">
+            ผลงานและกิจกรรม
+        </a>
+
+        <a href="#" class="nav-link" data-page="contact">
+            ช่องทางการติดต่อ
+        </a>
+
     </nav>
 
-    <!-- เนื้อหาหน้าแรก -->
-    <main class="home">
 
-        <h1 class="main-title">PORTFOLIO</h1>
+    <main>
 
-        <!-- ใส่รูปภาพตรงนี้ -->
-        <div class="profile-image">
-            <img src="images/profile.jpg" alt="รูปภาพของญาณิศา">
-        </div>
+        <!-- =========================
+             HOME
+        ========================== -->
 
-        <div class="intro-box">
-            <h2>นางสาวญาณิศา เสนาะล้ำ</h2>
-            <h3>Name: Yanisa Sanorlam</h3>
-            <p>Nickname: Aomsin</p>
-            <p>ระดับชั้น มัธยมศึกษาชั้นปีที่ 6/3</p>
-        </div>
+        <section id="home" class="active">
 
-    </main>
+            <div class="home-box">
 
-</body>
-    <!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คำนำ | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+                <h1 class="title">
+                    PORTFOLIO
+                </h1>
 
-<body>
+                <!--
+                    เปลี่ยนชื่อไฟล์ตรงนี้เพื่อใส่รูปของคุณ
 
-    <div class="apple apple1">🍎</div>
-    <div class="apple apple2">🍎</div>
-    <div class="apple apple3">🍎</div>
-    <div class="apple apple4">🍎</div>
-    <div class="apple apple5">🍎</div>
+                    ตัวอย่าง:
+                    images/profile.jpg
+                -->
 
-    <nav class="navbar">
-        <a href="index.html">หน้าแรก</a>
-        <a href="preface.html" class="active">คำนำ</a>
-        <a href="profile.html">ประวัติส่วนตัว</a>
-        <a href="activities.html">ผลงานและกิจกรรม</a>
-        <a href="contact.html">ช่องทางการติดต่อ</a>
-    </nav>
+                <img
+                    src="images/profile.jpg"
+                    alt="รูปโปรไฟล์"
+                    class="profile-image"
+                >
 
-    <main class="page">
+                <div class="content-box home-info">
 
-        <h1 class="page-title">คำนำ</h1>
+                    <div class="name">
+                        นางสาวญาณิศา เสนาะล้ำ
+                    </div>
 
-        <section class="content-box">
+                    <div class="english">
+                        Name Yanisa Sanorlam
+                    </div>
 
-            <h2>แฟ้มสะสมผลงาน (Portfolio)</h2>
+                    <div class="nickname">
+                        Nickname Aomsin
+                    </div>
 
-            <p>
-                แฟ้มสะสมผลงาน (Portfolio) เล่มนี้ จัดทำขึ้นเพื่อเป็นตัวแทน
-                ในการนำเสนอข้อมูลเกี่ยวกับประวัติส่วนตัว ความรู้ ความสามารถ
-                ทักษะ และกิจกรรมต่างๆ ของข้าพเจ้า โดยเฉพาะความสนใจและ
-                ความมุ่งมั่นที่มีต่อการศึกษาต่อ
-            </p>
+                    <div class="school">
+                        ระดับชั้น มัธยมศึกษาชั้นปีที่ 6/3
+                    </div>
 
-            <p>
-                ภายในแฟ้มสะสมผลงานเล่มนี้ ประกอบด้วยประวัติส่วนตัว
-                ผลการเรียน กิจกรรมที่ข้าพเจ้าได้เข้าร่วม
-            </p>
+                </div>
+
+            </div>
 
         </section>
 
-    </main>
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ประวัติส่วนตัว | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+        <!-- =========================
+             PREFACE
+        ========================== -->
 
-<body>
+        <section id="preface">
 
-    <div class="apple apple1">🍎</div>
-    <div class="apple apple2">🍎</div>
-    <div class="apple apple3">🍎</div>
-    <div class="apple apple4">🍎</div>
-    <div class="apple apple5">🍎</div>
+            <h1 class="title">
+                คำนำ
+            </h1>
 
-    <nav class="navbar">
-        <a href="index.html">หน้าแรก</a>
-        <a href="preface.html">คำนำ</a>
-        <a href="profile.html" class="active">ประวัติส่วนตัว</a>
-        <a href="activities.html">ผลงานและกิจกรรม</a>
-        <a href="contact.html">ช่องทางการติดต่อ</a>
-    </nav>
+            <div class="content-box">
 
-    <main class="page">
-
-        <h1 class="page-title">ประวัติส่วนตัว</h1>
-
-        <section class="content-box profile-box">
-
-            <h2>ประวัติส่วนตัว</h2>
-
-            <div class="profile-details">
-
-                <p><strong>ชื่อ-นามสกุล</strong> นางสาวญาณิศา เสนาะล้ำ</p>
-
-                <p><strong>Name</strong> Yanisa Sanorlam</p>
-
-                <p><strong>ชื่อเล่น</strong> ออมสิน</p>
-
-                <p><strong>Nickname</strong> Aomsin</p>
-
-                <p><strong>อายุ</strong> 18 ปี</p>
-
-                <p><strong>Age</strong> 18 years old</p>
-
-                <p><strong>วันเกิด</strong> 4 กันยายน 2551</p>
-
-                <p><strong>สัญชาติ</strong> ไทย</p>
-
-                <p><strong>เชื้อชาติ</strong> ไทย</p>
-
-                <p><strong>ศาสนา</strong> พุทธ</p>
-
-                <hr>
-
-                <h2>ประวัติการศึกษา</h2>
+                <h2>
+                    คำนำ
+                </h2>
 
                 <p>
-                    <strong>สถานศึกษา</strong><br>
-                    โรงเรียนบ้านบึง "อุตสาหกรรมนุเคราะห์"
+                    แฟ้มสะสมผลงาน (Portfolio) เล่มนี้ จัดทำขึ้นเพื่อเป็นตัวแทนในการนำเสนอข้อมูลเกี่ยวกับประวัติส่วนตัว ความรู้ ความสามารถ ทักษะ และกิจกรรมต่างๆ ของข้าพเจ้า โดยเฉพาะความสนใจและความมุ่งมั่นที่มีต่อการศึกษาต่อ
                 </p>
 
                 <p>
-                    <strong>แผนการเรียน</strong><br>
-                    วิทยาศาสตร์-คณิตศาสตร์ (MSEP)
-                </p>
-
-                <hr>
-
-                <h2>คณะและมหาวิทยาลัยที่สนใจศึกษาต่อ</h2>
-
-                <p>
-                    <strong>คณะ</strong> พยาบาลศาสตร์<br>
-                    <strong>สาขา</strong> พยาบาลศาสตร์<br>
-                    <strong>มหาวิทยาลัย</strong> มหาวิทยาลัยบูรพา
+                    ภายในแฟ้มสะสมผลงานเล่มนี้ ประกอบด้วยประวัติส่วนตัว ผลการเรียน กิจกรรมที่ข้าพเจ้าได้เข้าร่วม
                 </p>
 
             </div>
 
         </section>
 
-    </main>
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ผลงานและกิจกรรม | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+        <!-- =========================
+             PROFILE
+        ========================== -->
 
-<body>
+        <section id="profile">
 
-    <div class="apple apple1">🍎</div>
-    <div class="apple apple2">🍎</div>
-    <div class="apple apple3">🍎</div>
-    <div class="apple apple4">🍎</div>
-    <div class="apple apple5">🍎</div>
+            <h1 class="title">
+                ประวัติส่วนตัว
+            </h1>
 
-    <nav class="navbar">
-        <a href="index.html">หน้าแรก</a>
-        <a href="preface.html">คำนำ</a>
-        <a href="profile.html">ประวัติส่วนตัว</a>
-        <a href="activities.html" class="active">ผลงานและกิจกรรม</a>
-        <a href="contact.html">ช่องทางการติดต่อ</a>
-    </nav>
+            <div class="content-box">
 
-    <main class="page">
+                <h2>
+                    ประวัติส่วนตัว
+                </h2>
 
-        <h1 class="page-title">ผลงานและกิจกรรม</h1>
+                <div class="profile-grid">
 
-        <section class="content-box">
+                    <div class="profile-item">
+                        <strong>ชื่อ-นามสกุล</strong>
+                        <span>นางสาวญาณิศา เสนาะล้ำ</span>
+                    </div>
 
-            <div class="gallery">
+                    <div class="profile-item">
+                        <strong>Name</strong>
+                        <span>Yanisa Sanorlam</span>
+                    </div>
 
-                <!-- รูปภาพที่ 1 -->
-                <div class="activity-card">
-                    <img src="images/activity1.jpg" alt="ผลงานและกิจกรรมที่ 1">
-                    <h3>ผลงานและกิจกรรมที่ 1</h3>
+                    <div class="profile-item">
+                        <strong>ชื่อเล่น</strong>
+                        <span>ออมสิน</span>
+                    </div>
+
+                    <div class="profile-item">
+                        <strong>Nickname</strong>
+                        <span>Aomsin</span>
+                    </div>
+
+                    <div class="profile-item">
+                        <strong>อายุ</strong>
+                        <span>18 ปี</span>
+                    </div>
+
+                    <div class="profile-item">
+                        <strong>Age</strong>
+                        <span>18 years old</span>
+                    </div>
+
+                    <div class="profile-item">
+                        <strong>วันเกิด</strong>
+                        <span>4 กันยายน 2551</span>
+                    </div>
+
+                    <div class="profile-item">
+                        <strong>สัญชาติ</strong>
+                        <span>ไทย</span>
+                    </div>
+
+                    <div class="profile-item">
+                        <strong>เชื้อชาติ</strong>
+                        <span>ไทย</span>
+                    </div>
+
+                    <div class="profile-item">
+                        <strong>ศาสนา</strong>
+                        <span>พุทธ</span>
+                    </div>
+
                 </div>
 
-                <!-- รูปภาพที่ 2 -->
-                <div class="activity-card">
-                    <img src="images/activity2.jpg" alt="ผลงานและกิจกรรมที่ 2">
-                    <h3>ผลงานและกิจกรรมที่ 2</h3>
+
+                <div class="education">
+
+                    <div class="profile-item">
+                        <strong>ประวัติการศึกษา</strong>
+
+                        <span>
+                            สถานศึกษา โรงเรียนบ้านบึง
+                            "อุตสาหกรรมนุเคราะห์"
+                            <br><br>
+
+                            แผนการเรียน วิทยาศาสตร์-คณิตศาสตร์
+                            (MSEP)
+                        </span>
+
+                    </div>
+
+                    <br>
+
+                    <div class="profile-item">
+
+                        <strong>
+                            คณะ-สาขาและมหาวิทยาลัยที่สนใจศึกษาต่อ
+                        </strong>
+
+                        <span>
+                            คณะพยาบาลศาสตร์ สาขาพยาบาลศาสตร์
+                            มหาวิทยาลัยบูรพา
+                        </span>
+
+                    </div>
+
                 </div>
 
-                <!-- รูปภาพที่ 3 -->
-                <div class="activity-card">
-                    <img src="images/activity3.jpg" alt="ผลงานและกิจกรรมที่ 3">
-                    <h3>ผลงานและกิจกรรมที่ 3</h3>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ACTIVITIES
+        ========================== -->
+
+        <section id="activities">
+
+            <h1 class="title">
+                ผลงานและกิจกรรม
+            </h1>
+
+            <div class="content-box">
+
+                <div class="gallery">
+
+                    <!-- รูปที่ 1 -->
+                    <div class="gallery-item">
+
+                        <img
+                            src="images/activity1.jpg"
+                            alt="ผลงานและกิจกรรมที่ 1"
+                        >
+
+                        <p>
+                            ผลงานและกิจกรรมที่ 1
+                        </p>
+
+                    </div>
+
+
+                    <!-- รูปที่ 2 -->
+                    <div class="gallery-item">
+
+                        <img
+                            src="images/activity2.jpg"
+                            alt="ผลงานและกิจกรรมที่ 2"
+                        >
+
+                        <p>
+                            ผลงานและกิจกรรมที่ 2
+                        </p>
+
+                    </div>
+
+
+                    <!-- รูปที่ 3 -->
+                    <div class="gallery-item">
+
+                        <img
+                            src="images/activity3.jpg"
+                            alt="ผลงานและกิจกรรมที่ 3"
+                        >
+
+                        <p>
+                            ผลงานและกิจกรรมที่ 3
+                        </p>
+
+                    </div>
+
+
+                    <!-- รูปที่ 4 -->
+                    <div class="gallery-item">
+
+                        <img
+                            src="images/activity4.jpg"
+                            alt="ผลงานและกิจกรรมที่ 4"
+                        >
+
+                        <p>
+                            ผลงานและกิจกรรมที่ 4
+                        </p>
+
+                    </div>
+
+
+                    <!-- รูปที่ 5 -->
+                    <div class="gallery-item">
+
+                        <img
+                            src="images/activity5.jpg"
+                            alt="ผลงานและกิจกรรมที่ 5"
+                        >
+
+                        <p>
+                            ผลงานและกิจกรรมที่ 5
+                        </p>
+
+                    </div>
+
                 </div>
 
-                <!-- รูปภาพที่ 4 -->
-                <div class="activity-card">
-                    <img src="images/activity4.jpg" alt="ผลงานและกิจกรรมที่ 4">
-                    <h3>ผลงานและกิจกรรมที่ 4</h3>
-                </div>
+            </div>
 
-                <!-- รูปภาพที่ 5 -->
-                <div class="activity-card">
-                    <img src="images/activity5.jpg" alt="ผลงานและกิจกรรมที่ 5">
-                    <h3>ผลงานและกิจกรรมที่ 5</h3>
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section id="contact">
+
+            <h1 class="title">
+                ช่องทางการติดต่อ
+            </h1>
+
+            <div class="content-box">
+
+                <div class="contact-list">
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            📧
+                        </div>
+
+                        <div class="contact-label">
+                            Gmail
+                        </div>
+
+                        <div>
+                            yanisamaicry@gmail.com
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            📞
+                        </div>
+
+                        <div class="contact-label">
+                            Tel
+                        </div>
+
+                        <div>
+                            062-986-2154
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            📷
+                        </div>
+
+                        <div class="contact-label">
+                            IG
+                        </div>
+
+                        <div>
+                            aoms1nzq._
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -252,631 +906,54 @@
 
     </main>
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ช่องทางการติดต่อ | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+</div>
 
-<body>
 
-    <div class="apple apple1">🍎</div>
-    <div class="apple apple2">🍎</div>
-    <div class="apple apple3">🍎</div>
-    <div class="apple apple4">🍎</div>
-    <div class="apple apple5">🍎</div>
+<!-- =========================
+     JAVASCRIPT
+========================== -->
 
-    <nav class="navbar">
-        <a href="index.html">หน้าแรก</a>
-        <a href="preface.html">คำนำ</a>
-        <a href="profile.html">ประวัติส่วนตัว</a>
-        <a href="activities.html">ผลงานและกิจกรรม</a>
-        <a href="contact.html" class="active">ช่องทางการติดต่อ</a>
-    </nav>
+<script>
 
-    <main class="page">
+    const navLinks = document.querySelectorAll(".nav-link");
+    const sections = document.querySelectorAll("section");
 
-        <h1 class="page-title">ช่องทางการติดต่อ</h1>
+    navLinks.forEach(link => {
 
-        <section class="content-box contact-box">
+        link.addEventListener("click", function(event) {
 
-            <div class="contact-item">
-                <span class="contact-icon">📧</span>
-                <div>
-                    <h2>Gmail</h2>
-                    <p>yanisamaicry@gmail.com</p>
-                </div>
-            </div>
+            event.preventDefault();
 
-            <div class="contact-item">
-                <span class="contact-icon">📱</span>
-                <div>
-                    <h2>Tel</h2>
-                    <p>062-986-2154</p>
-                </div>
-            </div>
+            const page = this.getAttribute("data-page");
 
-            <div class="contact-item">
-                <span class="contact-icon">📸</span>
-                <div>
-                    <h2>IG</h2>
-                    <p>aoms1nzq._</p>
-                </div>
-            </div>
+            /* เปลี่ยนปุ่มเมนู */
+            navLinks.forEach(item => {
+                item.classList.remove("active");
+            });
 
-        </section>
+            this.classList.add("active");
 
-    </main>
+            /* เปลี่ยนหน้า */
+            sections.forEach(section => {
+                section.classList.remove("active");
+            });
+
+            document
+                .getElementById(page)
+                .classList.add("active");
+
+            /* เลื่อนกลับด้านบน */
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+    });
+
+</script>
 
 </body>
 </html>
-/* =========================
-   ตั้งค่าพื้นฐาน
-========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    min-height: 100vh;
-    font-family: "Arial", "Tahoma", sans-serif;
-
-    /* ตารางหมากรุก */
-    background-color: #CC0000;
-
-    background-image:
-        linear-gradient(45deg, #FFFFFF 25%, transparent 25%),
-        linear-gradient(-45deg, #FFFFFF 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #FFFFFF 75%),
-        linear-gradient(-45deg, transparent 75%, #FFFFFF 75%);
-
-    background-size: 80px 80px;
-    background-position:
-        0 0,
-        0 40px,
-        40px -40px,
-        -40px 0;
-
-    color: #FFFFFF;
-    overflow-x: hidden;
-}
-
-
-/* =========================
-   เมนูด้านบน
-========================= */
-
-.navbar {
-    position: relative;
-    z-index: 100;
-
-    width: 95%;
-    max-width: 1200px;
-
-    margin: 25px auto;
-
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-
-    padding: 10px;
-}
-
-.navbar a {
-    text-decoration: none;
-
-    color: #CCFF00;
-
-    font-size: 18px;
-    font-weight: bold;
-
-    padding: 12px 20px;
-
-    border: 3px solid #FFFFFF;
-    border-radius: 8px;
-
-    background: rgba(204, 0, 0, 0.92);
-
-    transition: all 0.3s ease;
-}
-
-.navbar a:hover,
-.navbar a.active {
-    background: #FFFFFF;
-    color: #CC0000;
-
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 0 10px #CCFF00,
-        0 0 20px rgba(204, 255, 0, 0.5);
-}
-
-
-/* =========================
-   แอปเปิ้ลลอย
-========================= */
-
-.apple {
-    position: fixed;
-
-    z-index: 1;
-
-    font-size: 45px;
-
-    pointer-events: none;
-
-    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
-
-    animation: floating 6s ease-in-out infinite;
-}
-
-.apple1 {
-    left: 8%;
-    top: 25%;
-
-    animation-duration: 5s;
-}
-
-.apple2 {
-    left: 82%;
-    top: 18%;
-
-    animation-duration: 7s;
-    animation-delay: 1s;
-}
-
-.apple3 {
-    left: 20%;
-    top: 78%;
-
-    animation-duration: 8s;
-    animation-delay: 2s;
-}
-
-.apple4 {
-    left: 70%;
-    top: 70%;
-
-    animation-duration: 6s;
-    animation-delay: 0.5s;
-}
-
-.apple5 {
-    left: 48%;
-    top: 45%;
-
-    animation-duration: 9s;
-    animation-delay: 1.5s;
-}
-
-@keyframes floating {
-
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-
-    25% {
-        transform: translate(30px, -40px) rotate(15deg);
-    }
-
-    50% {
-        transform: translate(-20px, -70px) rotate(-15deg);
-    }
-
-    75% {
-        transform: translate(40px, -30px) rotate(10deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-}
-
-
-/* =========================
-   หน้าแรก
-========================= */
-
-.home {
-    position: relative;
-    z-index: 10;
-
-    min-height: 85vh;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 40px 20px;
-}
-
-.main-title {
-    color: #CCFF00;
-
-    font-size: clamp(55px, 10vw, 130px);
-
-    font-weight: 900;
-
-    letter-spacing: 10px;
-
-    text-shadow:
-        5px 5px 0 #CC0000,
-        0 0 20px rgba(204, 255, 0, 0.7);
-
-    margin-bottom: 35px;
-}
-
-
-/* =========================
-   รูปภาพโปรไฟล์
-========================= */
-
-.profile-image {
-    width: 33vw;
-    max-width: 500px;
-    min-width: 250px;
-
-    aspect-ratio: 3 / 1;
-
-    overflow: hidden;
-
-    border: 6px solid #FFFFFF;
-
-    border-radius: 15px;
-
-    background: #CC0000;
-
-    box-shadow:
-        0 0 20px rgba(0,0,0,0.5),
-        0 0 30px rgba(204,255,0,0.4);
-}
-
-.profile-image img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-}
-
-
-/* =========================
-   กล่องข้อมูลหน้าแรก
-========================= */
-
-.intro-box {
-    margin-top: 30px;
-
-    padding: 25px 40px;
-
-    border: 4px solid #FFFFFF;
-
-    border-radius: 15px;
-
-    background: rgba(204, 0, 0, 0.9);
-
-    max-width: 800px;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-}
-
-.intro-box h2 {
-    color: #FFFFFF;
-    font-size: clamp(25px, 4vw, 45px);
-
-    margin-bottom: 12px;
-}
-
-.intro-box h3 {
-    color: #FFFFFF;
-    font-size: clamp(20px, 3vw, 30px);
-
-    margin-bottom: 8px;
-}
-
-.intro-box p {
-    color: #FFFFFF;
-    font-size: clamp(18px, 2vw, 25px);
-
-    margin: 5px;
-}
-
-
-/* =========================
-   หน้าภายใน
-========================= */
-
-.page {
-    position: relative;
-    z-index: 10;
-
-    width: 90%;
-    max-width: 1100px;
-
-    margin: 60px auto;
-
-    text-align: center;
-}
-
-.page-title {
-    display: inline-block;
-
-    color: #CCFF00;
-
-    font-size: clamp(45px, 7vw, 85px);
-
-    font-weight: 900;
-
-    padding: 10px 30px;
-
-    margin-bottom: 40px;
-
-    background: #CC0000;
-
-    border: 5px solid #FFFFFF;
-
-    border-radius: 15px;
-
-    text-shadow:
-        4px 4px 0 #000000;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,0.4);
-}
-
-
-/* =========================
-   กรอบข้อความ
-========================= */
-
-.content-box {
-    background: rgba(204, 0, 0, 0.94);
-
-    border: 5px solid #FFFFFF;
-
-    border-radius: 18px;
-
-    padding: 45px;
-
-    text-align: left;
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,0.4);
-
-    margin-bottom: 50px;
-}
-
-.content-box h2 {
-    color: #CCFF00;
-
-    font-size: clamp(25px, 4vw, 40px);
-
-    margin-bottom: 20px;
-
-    text-align: center;
-}
-
-.content-box p {
-    color: #FFFFFF;
-
-    font-size: clamp(18px, 2vw, 24px);
-
-    line-height: 1.9;
-
-    margin-bottom: 15px;
-}
-
-.content-box hr {
-    border: none;
-
-    border-top: 3px solid #CCFF00;
-
-    margin: 30px 0;
-}
-
-
-/* =========================
-   ประวัติส่วนตัว
-========================= */
-
-.profile-details {
-    max-width: 850px;
-    margin: auto;
-}
-
-.profile-details strong {
-    color: #CCFF00;
-}
-
-
-/* =========================
-   Gallery
-========================= */
-
-.gallery {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(280px, 1fr));
-
-    gap: 30px;
-}
-
-.activity-card {
-    background: #CC0000;
-
-    border: 4px solid #FFFFFF;
-
-    border-radius: 15px;
-
-    overflow: hidden;
-
-    transition: all 0.3s ease;
-
-    text-align: center;
-}
-
-.activity-card:hover {
-    transform: translateY(-8px) scale(1.02);
-
-    box-shadow:
-        0 0 20px #CCFF00;
-}
-
-.activity-card img {
-    width: 100%;
-    height: 250px;
-
-    object-fit: cover;
-
-    display: block;
-}
-
-.activity-card h3 {
-    color: #CCFF00;
-
-    padding: 18px;
-
-    font-size: 22px;
-}
-
-
-/* =========================
-   ติดต่อ
-========================= */
-
-.contact-box {
-    max-width: 750px;
-
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.contact-item {
-    display: flex;
-
-    align-items: center;
-
-    gap: 25px;
-
-    padding: 25px;
-
-    margin-bottom: 20px;
-
-    border: 3px solid #FFFFFF;
-
-    border-radius: 12px;
-
-    background: rgba(150, 0, 0, 0.7);
-
-    transition: 0.3s ease;
-}
-
-.contact-item:hover {
-    transform: translateX(10px);
-
-    border-color: #CCFF00;
-}
-
-.contact-icon {
-    font-size: 45px;
-}
-
-.contact-item h2 {
-    text-align: left;
-
-    color: #CCFF00;
-
-    font-size: 25px;
-
-    margin-bottom: 5px;
-}
-
-.contact-item p {
-    margin: 0;
-
-    font-size: 22px;
-}
-
-
-/* =========================
-   Responsive สำหรับมือถือ
-========================= */
-
-@media (max-width: 768px) {
-
-    .navbar {
-        margin-top: 15px;
-    }
-
-    .navbar a {
-        font-size: 14px;
-
-        padding: 9px 12px;
-    }
-
-    .home {
-        padding-top: 30px;
-    }
-
-    .main-title {
-        letter-spacing: 4px;
-    }
-
-    .profile-image {
-        width: 80vw;
-    }
-
-    .intro-box {
-        padding: 20px;
-    }
-
-    .page {
-        width: 94%;
-
-        margin-top: 35px;
-    }
-
-    .content-box {
-        padding: 25px 20px;
-    }
-
-    .apple {
-        font-size: 30px;
-    }
-
-    .contact-item {
-        gap: 15px;
-        padding: 18px;
-    }
-
-    .contact-icon {
-        font-size: 32px;
-    }
-}
-// Portfolio - Yanisa Sanorlam
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    console.log("Welcome to Yanisa's Portfolio!");
-
-});
-</html>
+```
